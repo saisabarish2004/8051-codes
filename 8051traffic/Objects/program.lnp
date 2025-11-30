@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\program.obj" 
+TO ".\Objects\program" 
+PRINT(".\Listings\program.m51")
