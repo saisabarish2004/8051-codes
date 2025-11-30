@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"timerled1.obj" 
+TO "timerled1" 
+PRINT(".\Listings\timerled1.m51") RAMSIZE(256) 

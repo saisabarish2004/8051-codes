@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"program.obj" 
+TO "program" 
+PRINT(".\Listings\program.m51") RAMSIZE(256) 

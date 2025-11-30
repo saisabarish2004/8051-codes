@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lcdlcdcode.obj" 
+TO ".\Objects\lcdlcdout" 
+PRINT(".\Listings\lcdlcdout.m51") RAMSIZE(256) 

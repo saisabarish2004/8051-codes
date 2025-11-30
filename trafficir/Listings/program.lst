@@ -1,0 +1,71 @@
+C51 COMPILER V9.56.0.0   PROGRAM                                                           02/25/2024 13:00:25 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE PROGRAM
+OBJECT MODULE PLACED IN .\Objects\program.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE program.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\p
+                    -rogram.lst) TABS(2) OBJECT(.\Objects\program.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit entry = P1^0;
+   4          sbit exit = P1^1;
+   5          sbit parkingfull = P2^0;
+   6          sbit parkingfree = P2^1;
+   7          char availableSpaces = 5;
+   8          int i;
+   9          
+  10          void updateLEDs();
+  11          
+  12          void delay() {
+  13   1          for (i = 0; i < 3000; i++);
+  14   1      }
+  15          
+  16          
+  17          void main() {
+  18   1      
+  19   1          while (1) {
+  20   2              if (entry == 0) {
+  21   3                  delay();
+  22   3                  if (availableSpaces > 0 && availableSpaces <= 5) {
+  23   4                      availableSpaces--;
+  24   4                  }
+  25   3              }
+  26   2      
+  27   2              if (exit == 0 && availableSpaces < 5) {
+  28   3                  delay();
+  29   3                  availableSpaces++;
+  30   3              }
+  31   2      
+  32   2              updateLEDs();
+  33   2              delay();
+  34   2          }
+  35   1      }
+  36          
+  37          void updateLEDs() {
+  38   1          if (availableSpaces == 0) {
+  39   2              parkingfull = 1;
+  40   2              parkingfree = 0;
+  41   2          } else {
+  42   2              parkingfull = 0;
+  43   2              parkingfree = 1;
+  44   2          }
+  45   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     87    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.56.0.0   PROGRAM                                                           02/25/2024 13:00:25 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
